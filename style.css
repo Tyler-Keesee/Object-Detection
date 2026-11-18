@@ -110,7 +110,7 @@ h1 {
 
 select#model-select {
   background-color: var(--neutral-dark);
-  color: var(--text-color);
+  color: var(--text);
   border: none;
   padding: 8px 12px;
   font-family: "Inter", sans-serif;
@@ -129,7 +129,7 @@ select#model-select:focus {
 
 select#model-select option {
   background-color: var(--neutral-dark);
-  color: var(--text-color);
+  color: var(--text);
   font-weight: 500;
 }
 
@@ -696,4 +696,12 @@ canvas,
   --primary-rgb: 105, 65, 198;
   --secondary-rgb: 5, 150, 105;
   --danger-rgb: 220, 38, 38;
+}
+
+/* Keyboard and touch users must be able to reach snapshot actions. */
+.snapshot-item:focus-within .snapshot-controls { opacity: 1; }
+@media (hover: none), (pointer: coarse) { .snapshot-controls { opacity: 1; } }
+:focus-visible { outline: 3px solid var(--secondary); outline-offset: 3px; }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
 }
